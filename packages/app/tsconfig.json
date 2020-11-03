@@ -1,52 +1,27 @@
 {
   "extends": "@polkadot/dev/config/tsconfig",
-  "exclude": [
-    "build/**/*",
-    "**/build/**/*"
-  ],
+  "exclude": ["build/**/*", "**/build/**/*"],
   "compilerOptions": {
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@zeit-ui/react": [
-        "../../node_modules/@zeit-ui/react/esm"
-      ],
-      "@zeit-ui/react/*": [
-        "../../node_modules/@zeit-ui/react/esm/*"
-      ],
+      "@zeit-ui/react": ["../../node_modules/@zeit-ui/react/esm"],
+      "@zeit-ui/react/*": ["../../node_modules/@zeit-ui/react/esm/*"],
       "@/*": ["src/*"],
       "@/utils/*": ["src/utils/*"],
       "@/components/*": ["src/components/*"],
-      "@phala/wallet/*": [
-        "../../packages/wallet/src/*"
-      ],
-      "@phala/wallet": [
-        "../../packages/wallet/src"
-      ],
-      "@phala/helloworld-app/*": [
-        "../../packages/helloworld-app/src/*"
-      ],
-      "@phala/helloworld-app": [
-        "../../packages/helloworld-app/src"
-      ],
-      "@phala/runtime/*": [
-        "../../packages/runtime/src/*"
-      ],
-      "@phala/runtime": [
-        "../../packages/runtime/src"
-      ],
-      "@phala/react-signer/*": [
-        "../../packages/react-signer/src/*"
-      ],
-      "@phala/react-signer": [
-        "../../packages/react-signer/src"
-      ],
-      "@polkadot/apps/*": [
-        "../../vendor/polkadot-apps/packages/apps/src/*"
-      ],
-      "@polkadot/apps": [
-        "../../vendor/polkadot-apps/packages/apps/src"
-      ],
+      "@phala/wallet/*": ["../../packages/wallet/src/*"],
+      "@phala/wallet": ["../../packages/wallet/src"],
+      "@phala/helloworld-app/*": ["../../packages/helloworld-app/src/*"],
+      "@phala/helloworld-app": ["../../packages/helloworld-app/src"],
+      "@phala/secretcode-app/*": ["../../packages/secretcode-app/src/*"],
+      "@phala/secretcode-app": ["../../packages/secretcode-app/src"],
+      "@phala/runtime/*": ["../../packages/runtime/src/*"],
+      "@phala/runtime": ["../../packages/runtime/src"],
+      "@phala/react-signer/*": ["../../packages/react-signer/src/*"],
+      "@phala/react-signer": ["../../packages/react-signer/src"],
+      "@polkadot/apps/*": ["../../vendor/polkadot-apps/packages/apps/src/*"],
+      "@polkadot/apps": ["../../vendor/polkadot-apps/packages/apps/src"],
       "@polkadot/apps-config/*": [
         "../../vendor/polkadot-apps/packages/apps-config/src/*"
       ],
@@ -116,9 +91,7 @@
       "@polkadot/app-i18n/*": [
         "../../vendor/polkadot-apps/packages/page-i18n/src/*"
       ],
-      "@polkadot/app-js": [
-        "../../vendor/polkadot-apps/packages/page-js/src"
-      ],
+      "@polkadot/app-js": ["../../vendor/polkadot-apps/packages/page-js/src"],
       "@polkadot/app-js/*": [
         "../../vendor/polkadot-apps/packages/page-js/src/*"
       ],
@@ -220,24 +193,13 @@
       ]
     },
     "skipLibCheck": true,
-    "typeRoots": [
-      "./node_modules/@polkadot/ts",
-      "./node_modules/@types"
-    ],
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "typeRoots": ["./node_modules/@polkadot/ts", "./node_modules/@types"],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

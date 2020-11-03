@@ -4252,6 +4252,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@phala/secretcode-app@workspace:packages/secretcode-app":
+  version: 0.0.0-use.local
+  resolution: "@phala/secretcode-app@workspace:packages/secretcode-app"
+  languageName: unknown
+  linkType: soft
+
 "@phala/wallet@workspace:packages/wallet":
   version: 0.0.0-use.local
   resolution: "@phala/wallet@workspace:packages/wallet"
