@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import styled from 'styled-components';
 import { observer } from 'mobx-react';
-import { Button, Input, useInput, useToasts } from '@zeit-ui/react';
+import { Button, Input, Spacer, useInput, useToasts } from '@zeit-ui/react';
 import { Plus as PlusIcon } from '@zeit-ui/react-icons';
 
 import { useStore } from '@/store';
@@ -20,32 +20,21 @@ const ButtonWrapper = styled.div`
   width: 200px;
 `;
 
-/**
- * Header of the HelloWorld app page
- */
 const AppHeader = () => (
   <Container>
     <h1>Secret Code!</h1>
   </Container>
 );
 
-/**
- * Body of the HelloWorld app page
- */
 const AppBody = observer(() => {
   const { appRuntime, secretcodeApp } = useStore();
   const [, setToast] = useToasts();
-  const { state: shw, bindings } = useInput('vgk');
+  const { state: shw, bindings } = useInput('This is secret code!');
 
-  /**
-   * Updates the counter by querying the helloworld contract
-   * The type definitions of `GetCount` request and response can be found at contract/helloworld.rs
-   */
   async function updateCode() {
     if (!secretcodeApp) return;
     try {
       const response = await secretcodeApp.queryCode(appRuntime);
-      // Print the response in the original to the console
       console.log('Response::GetCode', response);
 
       secretcodeApp.setCode(response.GetCode.code);
@@ -54,28 +43,10 @@ const AppBody = observer(() => {
     }
   }
 
-  /**
-   * The `increment` transaction payload object
-   * It follows the command type definition of the contract (at contract/helloworld.rs)
-   */
-  // const incrementCommandPayload = useMemo(() => {
-  //   const num = parseInt(inc)
-  //   if (isNaN(num) || inc <= 0) {
-  //     return undefined
-  //   } else {
-  //     return {
-  //       Increment: {
-  //         value: num
-  //       }
-  //     }
-  //   }
-  // }, [inc])
-
   const showCommandPayload = useMemo(() => {
-    const showstr = shw;
     return {
       Show: {
-        codestr: showstr,
+        codestr: shw,
       },
     };
   }, [shw]);
@@ -87,16 +58,16 @@ const AppBody = observer(() => {
         <div>PRuntime ping: {appRuntime.latency || '+∞'}</div>
         <div>PRuntime connected: {appRuntime?.channelReady ? 'yes' : 'no'}</div>
       </section>
-      {/* <Spacer y={1} /> */}
+      <Spacer y={1} />
 
       <h3>Code</h3>
       <section>
         <div>Code: {secretcodeApp.codev}</div>
         <div>
-          <Button onClick={updateCode}>Update</Button>
+          <Button onClick={updateCode}>Show</Button>
         </div>
       </section>
-      {/* <Spacer y={1} /> */}
+      <Spacer y={1} />
 
       <h3>Secret Code</h3>
       <section>
@@ -104,10 +75,6 @@ const AppBody = observer(() => {
           <Input label='By' {...bindings} />
         </div>
         <ButtonWrapper>
-          {/**
-           * PushCommandButton is the easy way to send confidential contract txs.
-           * Below it's configurated to send SecretCode::Show()
-           */}
           <PushCommandButton
             // tx arguments
             contractId={CONTRACT_SECRETCODE}

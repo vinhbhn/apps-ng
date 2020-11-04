@@ -96,7 +96,11 @@ const NavBar = () => {
         <NavBarButton href='HELLOWORLDAPP' name={t('App')} icon={BoxIcon} />
         <NavItemSpacer />
         <NavItemSpacer />
-        <NavBarButton href='SECRETCODEAPP' name={t('Sec')} icon={UsersIcon} />
+        <NavBarButton
+          href='SECRETCODEAPP'
+          name={t('Secret')}
+          icon={UsersIcon}
+        />
         <NavItemSpacer />
         <NavBarButtonWrapper
           onClick={() => window.open('/legacy.html', '_blank')}

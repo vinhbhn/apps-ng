@@ -5,11 +5,11 @@ export const CONTRACT_SECRETCODE = 6;
 export const createSecretCodeAppStore = (defaultValue = {}, options = {}) => {
   const SecretCodeAppStore = types
     .model('SecretCodeAppStore', {
-      codev: types.maybeNull(types.string),
+      codev: types.maybe(types.string),
     })
     .actions((self) => ({
-      setCode(showstr) {
-        self.codev = showstr;
+      setCode(code) {
+        self.codev = code;
       },
       async queryCode(runtime) {
         return await runtime.query(CONTRACT_SECRETCODE, 'GetCode');
